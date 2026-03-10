@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gagan & Nikitha – Engagement Invitation</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ----- ROOT VARIABLES & RESET ----- */
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --soft-pink: #FFF0F5;
+            --text-dark: #3E2723;
+            --text-light: #6D4C41;
+            --cream: #FFF8F0;
+            --shadow: rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff8f0 0%, #fff0f5 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ----- FLOATING BACKGROUND HEARTS ----- */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            color: var(--primary-gold);
+            opacity: 0.15;
+            font-size: 20px;
+            animation: float 6s infinite ease-in-out;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) translateY(0px) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) translateY(-20px) rotate(10deg); }
+        }
+
+        /* ----- CONTAINER ----- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ----- HERO SECTION ----- */
+        .hero {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--dark-gold);
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-light);
+            letter-spacing: 8px;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .hero .ampersand {
+            font-size: 4rem;
+            color: var(--primary-gold);
+            line-height: 1;
+            margin: 0 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero .announcement {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* ----- EVENT CARD ----- */
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px var(--shadow);
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            animation: slideUp 1s ease-out;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-gold);
+        }
+
+        .card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .highlight {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark-gold);
+            margin-top: 5px;
+        }
+
+        /* ----- DETAILS GRID ----- */
+        .details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .details {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* ----- COUNTDOWN ----- */
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .count-box {
+            background: var(--soft-pink);
+            padding: 15px 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .count-num {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark-gold);
+        }
+
+        .count-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+        }
+
+        /* ----- VENUE MAP PLACEHOLDER ----- */
+        .venue-card {
+            background: linear-gradient(135deg, #fff 0%, #fffaf0 100%);
+            border-left: 4px solid var(--primary-gold);
+            text-align: left;
+        }
+
+        .venue-text {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .venue-text span {
+            display: block;
+            margin-top: 4px;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        /* ----- RSVP SECTION ----- */
+        .rsvp {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .rsvp h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: var(--primary-gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-gold);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--dark-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* ----- FOOTER ----- */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* ----- ANIMATIONS ----- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero .ampersand { font-size: 3rem; }
+            .countdown { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .card { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Decorative Background Hearts -->
+    <div class="hearts" id="heartsContainer"></div>
+
+    <div class="container">
+        
+        <!-- HERO -->
+        <header class="hero">
+            <div class="subtitle">We Are Getting Engaged</div>
+            <h1>
+                Gagan
+                <span>&</span>
+                Nikitha
+            </h1>
+            <p class="announcement">"Join us as we begin the journey of forever together"</p>
+        </header>
+
+        <!-- EVENT DETAILS -->
+        <div class="details">
+            <!-- Date Card -->
+            <div class="card">
+                <h2>Engagement Ceremony</h2>
+                <p>You are cordially invited to celebrate<br>the engagement of</p>
+                <span class="highlight">Sunday, 10th May 2026</span>
+            </div>
+
+            <!-- Venue Card -->
+            <div class="card venue-card">
+                <div class="card-icon">📍</div>
+                <h2>Venue</h2>
+                <p class="venue-text">
+                    <strong>Balija Bhavana</strong>
+                    <span>Holenarsipura,</span>
+                    <span>Hassan, Karnataka</span>
+                </p>
+                <!-- Optional: Add Google Maps link if you have exact coordinates -->
+                <br>
+                <a href="https://www.google.com/maps/search/?api=1&query=Balija+Bhavana+Holenarsipura+Hassan+Karnataka" 
+                   target="_blank" class="btn" style="padding:10px 25px; font-size:0.9rem;">
+                   View on Map
+                </a>
+            </div>
+        </div>
+
+        <!-- COUNTDOWN TIMER -->
+        <div class="card" style="background: linear-gradient(135deg, #fff 0%, #fffaf0 100%);">
+            <h2 style="font-family:'Playfair Display', serif; margin-bottom:10px;">Counting Down To The Big Day</h2>
+            <div class="countdown" id="countdown">
+                <div class="count-box">
+                    <span class="count-num" id="days">00</span>
+                    <span class="count-label">Days</span>
+                </div>
+                <div class="count-box">
+                    <span class="count-num" id="hours">00</span>
+                    <span class="count-label">Hours</span>
+                </div>
+                <div class="count-box">
+                    <span class="count-num" id="minutes">00</span>
+                    <span class="count-label">Minutes</span>
+                </div>
+                <div class="count-box">
+                    <span class="count-num" id="seconds">00</span>
+                    <span class="count-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- RSVP -->
+        <div class="rsvp">
+            <h3>Your Presence Is Our Present</h3>
+            <p style="margin-bottom: 25px; color: var(--text-light);">
+                We look forward to celebrating this special moment with you.
+            </p>
+            <button class="btn" onclick="confirmRSVP()">Confirm Attendance</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>With love, <strong>Gagan & Nikitha</strong> 💛</p>
+        <p style="font-size:0.8rem; margin-top:10px;">&copy; 2026 Engagement Invitation</p>
+    </footer>
+
+    <script>
+        /* ----- GENERATE FLOATING HEARTS ----- */
+        const heartsContainer = document.getElementById('heartsContainer');
+        const heartSymbols = ['❤', '❥', '♥', '💛', '💕'];
+        
+        for(let i=0; i<15; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+            heartsContainer.appendChild(heart);
+        }
+
+        /* ----- COUNTDOWN LOGIC ----- */
+        // Target: May 10, 2026 (Set to 00:00:00 of that day)
+        const countDownDate = new Date("May 10, 2026 00:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            // Time calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the results
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            // If the count down is over
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = 
+                    `<h3 style="grid-column:1/-1; color:var(--dark-gold); font-family:'Playfair Display',serif;">
+                        The Big Day is Here! 💍
+                    </h3>`;
+            }
+        }, 1000);
+
+        /* ----- RSVP INTERACTION ----- */
+        function confirmRSVP() {
+            // Simple elegant alert (you can replace this with a modal or redirect)
+            const btn = document.querySelector('.btn');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "✓ Response Recorded!";
+            btn.style.background = "#4CAF50"; // Green success
+            
+            setTimeout(() => {
+                alert("Thank you for confirming your attendance!\nWe can't wait to see you on May 10th, 2026! 🎉");
+                btn.innerText = originalText;
+                btn.style.background = ""; // Reset
+            }, 600);
+        }
+
+        /* ----- SCROLL ANIMATION (Subtle fade-in for cards) ----- */
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach((el, index) => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(30px)";
+            el.style.transition = `all 0.8s ease ${index * 0.2}s`;
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
